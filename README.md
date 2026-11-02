@@ -1,12 +1,12 @@
-# FigmaEX 擎天柱皮肤 · v1.4.2
+# FigmaEX 擎天柱皮肤 · v1.4.3
 
 红蓝装甲、青色流光和擎天柱眼睛状态反馈。此仓库只提供当前版本；自动外壳高度尚未完成。
 
 ## 下载与使用
 
-- [下载 v1.4.2 压缩包](https://github.com/Torin12323/figmaex-optimus/raw/refs/heads/main/figmaex-optimus-v1.4.2.zip)
+- [下载 v1.4.3 压缩包](https://github.com/Torin12323/figmaex-optimus/raw/refs/heads/main/figmaex-optimus-v1.4.3.zip)
 - [开发与验收规范](FIGMAEX-SKIN-STANDARD.md)
-- [本次修复说明](docs/v1.4.2-native-layout.md)
+- [背景铺满说明](docs/v1.4.3-background.md)
 
 1. 下载并解压，使用记事本打开 **optimus.css**。
 2. 全选复制，进入 FigmaEX 设置 → 皮肤 → 自定义 CSS 皮肤。
@@ -25,6 +25,12 @@
 | preview.html | 离线交互示意；布局与事件为模拟，不能代替实际安装验收 |
 | FIGMAEX-SKIN-STANDARD.md | 本次错误复盘、开发规范、验收与交付清单 |
 
+## 背景自动铺满
+
+外壳、右侧插件区和左侧目录装甲背景均随各自容器尺寸铺满，取消固定的 560px／500px／440px 背景高度。装甲 SVG 使用 preserveAspectRatio="none"，避免容器比例变化后 SVG 内部留白；用户角色原图保持原样。
+
+市场结果容器透明，让空白区露出装甲；有文字的入口和空搜索提示仍保留实色背景。此版本只改变背景绘制，不改变布局、定位、宽高或滚动规则。
+
 ## 当前修复
 
 - 撤回强制 Grid 分栏与区域定位覆盖。
@@ -39,7 +45,7 @@
 
 本地 Chromium 已使用官方 Chrome 发布包 v1.5.101 中读取的 CSS 和 DOM 结构，检查 54px 收起、400px 展开、列表滚动、拖动条位置和动画保护。用户截图为 v1.5.100，仍需在实际安装中确认。发布包仅用于读取，未安装或执行其 JavaScript；本地事件由测试脚本模拟。
 
-[验证说明](docs/README-QA.md) · [布局测量](docs/native-layout-check-v1.4.2.json) · [静态检查](docs/qa-results.json)
+[验证说明](docs/README-QA.md) · [背景检查](docs/background-check-v1.4.3.json) · [v1.4.2 布局测量](docs/native-layout-check-v1.4.2.json) · [静态检查](docs/qa-results.json)
 
 **外壳随目录／插件数量自动增长的需求暂缓，尚未完成。** 当前优先恢复原生布局；本地测试不能保证所有宿主版本兼容。
 

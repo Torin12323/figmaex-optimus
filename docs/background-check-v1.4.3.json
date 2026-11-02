@@ -1,0 +1,237 @@
+{
+  "version": "1.4.3",
+  "scope": "Published DOM/CSS fixture in local Chromium, not user installation",
+  "browser": "153.0.8010.0",
+  "layoutDeclarationsUnchanged": true,
+  "cases": [
+    {
+      "theme": "light",
+      "height": 340,
+      "geometryUnchanged": true,
+      "paints": {
+        "root": {
+          "size": "100% 100%",
+          "image": true,
+          "color": "rgb(230, 237, 245)"
+        },
+        "actions": {
+          "size": "100% 100%",
+          "image": true,
+          "color": "rgb(230, 237, 245)"
+        },
+        "groups": {
+          "size": "100% 100%",
+          "image": true,
+          "color": "rgb(16, 38, 60)"
+        },
+        "market": {
+          "size": "auto",
+          "image": false,
+          "color": "rgba(0, 0, 0, 0)"
+        },
+        "card": {
+          "size": "auto",
+          "image": false,
+          "color": "rgb(248, 250, 252)"
+        },
+        "duration": "1.6s"
+      },
+      "bottomPixel": [
+        150,
+        51,
+        71
+      ]
+    },
+    {
+      "theme": "light",
+      "height": 574,
+      "geometryUnchanged": true,
+      "paints": {
+        "root": {
+          "size": "100% 100%",
+          "image": true,
+          "color": "rgb(230, 237, 245)"
+        },
+        "actions": {
+          "size": "100% 100%",
+          "image": true,
+          "color": "rgb(230, 237, 245)"
+        },
+        "groups": {
+          "size": "100% 100%",
+          "image": true,
+          "color": "rgb(16, 38, 60)"
+        },
+        "market": {
+          "size": "auto",
+          "image": false,
+          "color": "rgba(0, 0, 0, 0)"
+        },
+        "card": {
+          "size": "auto",
+          "image": false,
+          "color": "rgb(248, 250, 252)"
+        },
+        "duration": "1.6s"
+      },
+      "bottomPixel": [
+        150,
+        51,
+        71
+      ]
+    },
+    {
+      "theme": "light",
+      "height": 780,
+      "geometryUnchanged": true,
+      "paints": {
+        "root": {
+          "size": "100% 100%",
+          "image": true,
+          "color": "rgb(230, 237, 245)"
+        },
+        "actions": {
+          "size": "100% 100%",
+          "image": true,
+          "color": "rgb(230, 237, 245)"
+        },
+        "groups": {
+          "size": "100% 100%",
+          "image": true,
+          "color": "rgb(16, 38, 60)"
+        },
+        "market": {
+          "size": "auto",
+          "image": false,
+          "color": "rgba(0, 0, 0, 0)"
+        },
+        "card": {
+          "size": "auto",
+          "image": false,
+          "color": "rgb(248, 250, 252)"
+        },
+        "duration": "1.6s"
+      },
+      "bottomPixel": [
+        150,
+        51,
+        71
+      ]
+    },
+    {
+      "theme": "dark",
+      "height": 340,
+      "geometryUnchanged": true,
+      "paints": {
+        "root": {
+          "size": "100% 100%",
+          "image": true,
+          "color": "rgb(16, 27, 42)"
+        },
+        "actions": {
+          "size": "100% 100%",
+          "image": true,
+          "color": "rgb(16, 27, 42)"
+        },
+        "groups": {
+          "size": "100% 100%",
+          "image": true,
+          "color": "rgb(16, 38, 60)"
+        },
+        "market": {
+          "size": "auto",
+          "image": false,
+          "color": "rgba(0, 0, 0, 0)"
+        },
+        "card": {
+          "size": "auto",
+          "image": false,
+          "color": "rgb(31, 44, 61)"
+        },
+        "duration": "1.6s"
+      },
+      "bottomPixel": [
+        150,
+        51,
+        71
+      ]
+    },
+    {
+      "theme": "dark",
+      "height": 574,
+      "geometryUnchanged": true,
+      "paints": {
+        "root": {
+          "size": "100% 100%",
+          "image": true,
+          "color": "rgb(16, 27, 42)"
+        },
+        "actions": {
+          "size": "100% 100%",
+          "image": true,
+          "color": "rgb(16, 27, 42)"
+        },
+        "groups": {
+          "size": "100% 100%",
+          "image": true,
+          "color": "rgb(16, 38, 60)"
+        },
+        "market": {
+          "size": "auto",
+          "image": false,
+          "color": "rgba(0, 0, 0, 0)"
+        },
+        "card": {
+          "size": "auto",
+          "image": false,
+          "color": "rgb(23, 36, 54)"
+        },
+        "duration": "1.6s"
+      },
+      "bottomPixel": [
+        150,
+        51,
+        71
+      ]
+    },
+    {
+      "theme": "dark",
+      "height": 780,
+      "geometryUnchanged": true,
+      "paints": {
+        "root": {
+          "size": "100% 100%",
+          "image": true,
+          "color": "rgb(16, 27, 42)"
+        },
+        "actions": {
+          "size": "100% 100%",
+          "image": true,
+          "color": "rgb(16, 27, 42)"
+        },
+        "groups": {
+          "size": "100% 100%",
+          "image": true,
+          "color": "rgb(16, 38, 60)"
+        },
+        "market": {
+          "size": "auto",
+          "image": false,
+          "color": "rgba(0, 0, 0, 0)"
+        },
+        "card": {
+          "size": "auto",
+          "image": false,
+          "color": "rgb(23, 36, 54)"
+        },
+        "duration": "1.6s"
+      },
+      "bottomPixel": [
+        150,
+        51,
+        71
+      ]
+    }
+  ],
+  "staticMotionOff": true
+}

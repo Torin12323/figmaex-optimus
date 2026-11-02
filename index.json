@@ -1,13 +1,13 @@
 [
   {
     "name": "擎天柱 · 塞伯坦装甲舱",
-    "version": "1.4.2",
+    "version": "1.4.3",
     "css": "optimus.css",
     "preview": "preview.html"
   },
   {
     "name": "擎天柱 · 静态版",
-    "version": "1.4.2",
+    "version": "1.4.3",
     "css": "optimus-static.css"
   }
 ]

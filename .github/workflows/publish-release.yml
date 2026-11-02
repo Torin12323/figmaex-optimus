@@ -1,4 +1,4 @@
-name: Publish Optimus v1.4.2
+name: Publish Optimus v1.4.3
 on:
   push:
     branches: [main]
@@ -7,7 +7,7 @@ on:
 permissions:
   contents: write
 concurrency:
-  group: release-optimus-v1.4.2
+  group: release-optimus-v1.4.3
   cancel-in-progress: false
 jobs:
   release:
@@ -18,27 +18,25 @@ jobs:
         env:
           GH_TOKEN: ${{ github.token }}
           GH_REPO: Torin12323/figmaex-optimus
-          RELEASE_COMMIT: 4853dfde6b26158f8f6ab0258c97163bb3aaf140
+          RELEASE_COMMIT: ${{ github.sha }}
         shell: bash
         run: |
           set -euo pipefail
-          curl --fail --location --retry 3 --output figmaex-optimus-v1.4.2.zip "https://raw.githubusercontent.com/Torin12323/figmaex-optimus/$RELEASE_COMMIT/figmaex-optimus-v1.4.2.zip"
-          echo "555c1e164fd949471577d30d59fe1b01161256a0e3092d43838a3345cdf087ad  figmaex-optimus-v1.4.2.zip" | sha256sum --check
+          curl --fail --location --retry 3 --output figmaex-optimus-v1.4.3.zip "https://raw.githubusercontent.com/Torin12323/figmaex-optimus/$RELEASE_COMMIT/figmaex-optimus-v1.4.3.zip"
+          echo "0080e887c41c7228eaec7fc26e8d9b8d8add9ca4c7681c8cc9a38f5c3680c8c6  figmaex-optimus-v1.4.3.zip" | sha256sum --check
           cat > release-notes.md <<'NOTES'
-          ## 擎天柱皮肤 v1.4.2
-          请下载下方 Assets 中的 figmaex-optimus-v1.4.2.zip。
+          ## 背景自动铺满
+          - 装甲背景随面板和两侧区域尺寸铺满，取消固定像素高度。
+          - 处理 SVG 内部比例留白和空白容器遮挡，文字控件继续使用实色底。
+          - 布局、定位、滚动和流光速度保持不变。
+          - 包含开发验收规范及无需粘贴代码的临时恢复步骤。
           
-          - 恢复原生列表高度和底部拖动条定位，撤回强制 Grid 分栏。
-          - 修复目录底色被透明背景覆盖的问题。
-          - 保留 1.6 秒流光、4px 光轨、2px 主要描边、选中延伸和眼睛反馈。
-          - 压缩包包含动态版、静态版、预览和 FIGMAEX-SKIN-STANDARD.md 开发验收规范。
+          下载下方 Assets 中的 figmaex-optimus-v1.4.3.zip，复制 optimus.css 全文替换旧 CSS。静态版使用 optimus-static.css。
           
-          安装：解压后复制 optimus.css 全文，在 FigmaEX 设置中全选替换旧 CSS，不能追加。静态版使用 optimus-static.css。
-          
-          说明：54px 为原生收起宽度，鼠标移到顶部头像区域检查展开。外壳自动高度尚未完成；验证依据发布包结构的本地浏览器模拟，未直接确认用户实际安装。
+          验证：本地 Chromium 的发布包结构模拟，检查不同高度、深浅主题及改动前后几何；未直接操作用户实际安装。外壳自动高度仍暂缓。
           NOTES
-          if gh release view v1.4.2 --repo "$GH_REPO" >/dev/null 2>&1; then
+          if gh release view v1.4.3 --repo "$GH_REPO" >/dev/null 2>&1; then
             echo "Release already exists; keeping it unchanged."
             exit 0
           fi
-          gh release create v1.4.2 figmaex-optimus-v1.4.2.zip --repo "$GH_REPO" --target "$RELEASE_COMMIT" --title "擎天柱皮肤 v1.4.2" --notes-file release-notes.md --latest
+          gh release create v1.4.3 figmaex-optimus-v1.4.3.zip --repo "$GH_REPO" --target "$RELEASE_COMMIT" --title "擎天柱皮肤 v1.4.3 · 背景自动铺满" --notes-file release-notes.md --latest
