@@ -1,0 +1,44 @@
+name: Publish Optimus v1.4.2
+on:
+  push:
+    branches: [main]
+    paths: [.github/workflows/publish-release.yml]
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: release-optimus-v1.4.2
+  cancel-in-progress: false
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: Verify package and publish release
+        env:
+          GH_TOKEN: ${{ github.token }}
+          GH_REPO: Torin12323/figmaex-optimus
+          RELEASE_COMMIT: 4853dfde6b26158f8f6ab0258c97163bb3aaf140
+        shell: bash
+        run: |
+          set -euo pipefail
+          curl --fail --location --retry 3 --output figmaex-optimus-v1.4.2.zip "https://raw.githubusercontent.com/Torin12323/figmaex-optimus/$RELEASE_COMMIT/figmaex-optimus-v1.4.2.zip"
+          echo "555c1e164fd949471577d30d59fe1b01161256a0e3092d43838a3345cdf087ad  figmaex-optimus-v1.4.2.zip" | sha256sum --check
+          cat > release-notes.md <<'NOTES'
+          ## 擎天柱皮肤 v1.4.2
+          请下载下方 Assets 中的 figmaex-optimus-v1.4.2.zip。
+          
+          - 恢复原生列表高度和底部拖动条定位，撤回强制 Grid 分栏。
+          - 修复目录底色被透明背景覆盖的问题。
+          - 保留 1.6 秒流光、4px 光轨、2px 主要描边、选中延伸和眼睛反馈。
+          - 压缩包包含动态版、静态版、预览和 FIGMAEX-SKIN-STANDARD.md 开发验收规范。
+          
+          安装：解压后复制 optimus.css 全文，在 FigmaEX 设置中全选替换旧 CSS，不能追加。静态版使用 optimus-static.css。
+          
+          说明：54px 为原生收起宽度，鼠标移到顶部头像区域检查展开。外壳自动高度尚未完成；验证依据发布包结构的本地浏览器模拟，未直接确认用户实际安装。
+          NOTES
+          if gh release view v1.4.2 --repo "$GH_REPO" >/dev/null 2>&1; then
+            echo "Release already exists; keeping it unchanged."
+            exit 0
+          fi
+          gh release create v1.4.2 figmaex-optimus-v1.4.2.zip --repo "$GH_REPO" --target "$RELEASE_COMMIT" --title "擎天柱皮肤 v1.4.2" --notes-file release-notes.md --latest
