@@ -1,10 +1,11 @@
 # FigmaEX 擎天柱皮肤 · v1.4.3
 
-红蓝装甲、青色流光和擎天柱眼睛状态反馈。此仓库只提供当前版本；自动外壳高度尚未完成。
+红蓝装甲、青色流光和擎天柱眼睛状态反馈。默认源码为最新版；各版本压缩包和 Releases 分别保留，便于下载回退。自动外壳高度尚未完成。
 
 ## 下载与使用
 
 - [下载 v1.4.3 压缩包](https://github.com/Torin12323/figmaex-optimus/raw/refs/heads/main/figmaex-optimus-v1.4.3.zip)
+- [更新日志与版本下载](CHANGELOG.md)
 - [开发与验收规范](FIGMAEX-SKIN-STANDARD.md)
 - [背景铺满说明](docs/v1.4.3-background.md)
 
