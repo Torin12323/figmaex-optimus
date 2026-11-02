@@ -1,0 +1,78 @@
+{
+  "optimus.css": {
+    "rules": 97,
+    "parseErrors": [],
+    "allVariablesDefined": true,
+    "externalAssets": false
+  },
+  "optimus-static.css": {
+    "rules": 98,
+    "parseErrors": [],
+    "allVariablesDefined": true,
+    "externalAssets": false
+  },
+  "contrast": {
+    "light": {
+      "text / shell": 12.22,
+      "text / surface": 13.79,
+      "text / hover": 12.06,
+      "text / selected": 11.55,
+      "muted / shell": 6.4,
+      "muted / surface": 7.22,
+      "muted / hover": 6.32,
+      "muted / selected": 6.05
+    },
+    "dark": {
+      "text / shell": 15.66,
+      "text / surface": 14.15,
+      "text / hover": 10.73,
+      "text / selected": 9.31,
+      "muted / shell": 10.23,
+      "muted / surface": 9.24,
+      "muted / hover": 7.01,
+      "muted / selected": 6.08
+    }
+  },
+  "referenceContrast": {
+    "teaNote": 2.15,
+    "teaHoverNote": 1.7,
+    "deepDarkNote": 3.68,
+    "deepDarkHoverTitle": 2.76,
+    "skyBlueNote": 4.1,
+    "skyBlueHoverNote": 2.53,
+    "darkNote": 2.94
+  },
+  "domChecks": [
+    "search",
+    "clear",
+    "favorite toggle",
+    "both themes",
+    "compact",
+    "expanded",
+    "mini exclusivity",
+    "glass",
+    "motion on/off",
+    "long labels",
+    "empty",
+    "settings",
+    "width controls 240/320/460"
+  ],
+  "sidebarContrast": {
+    "edf4ff/10263c": 13.91,
+    "edf4ff/1e3f5b": 9.9,
+    "edf4ff/2b526f": 7.48,
+    "edf4ff/25475f": 8.85,
+    "c8d9e8/10263c": 10.66,
+    "c8d9e8/1e3f5b": 7.59,
+    "c8d9e8/2b526f": 5.73,
+    "c8d9e8/25475f": 6.78
+  },
+  "imagePreserved": true,
+  "motionGuards": [
+    "reduced-motion scale reset",
+    "static duration 0ms",
+    "static continuous animation off",
+    "interaction keeps rails running"
+  ],
+  "scope": "Static CSS parsing, color calculations and DOM fixture behavior; no browser rendering or live FigmaEX test."
+}

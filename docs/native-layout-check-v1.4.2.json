@@ -1,0 +1,38 @@
+{
+  "version": "1.4.2",
+  "browser": "153.0.8010.0",
+  "source": "Official Chrome release 1.5.101 layout CSS; user screenshot says 1.5.100",
+  "scope": "Published layout CSS and component structure; simulated header event, not real installation",
+  "nativeRuleCount": 147,
+  "closed": {
+    "width": 54,
+    "height": 574,
+    "footerPosition": "absolute",
+    "footerBottomGap": 2,
+    "scrollHeight": 1023,
+    "listHeight": 506,
+    "listComputedHeight": "506px",
+    "duration": "1.6s"
+  },
+  "open": {
+    "width": 400,
+    "height": 574,
+    "footerPosition": "absolute",
+    "footerBottomGap": 2,
+    "scrollHeight": 1023,
+    "listHeight": 506,
+    "listComputedHeight": "506px",
+    "duration": "1.6s"
+  },
+  "mini": {
+    "width": 54,
+    "height": 54,
+    "footerPosition": "absolute",
+    "footerBottomGap": 94,
+    "scrollHeight": 1023,
+    "listHeight": 0,
+    "listComputedHeight": "0px",
+    "duration": "1.6s"
+  },
+  "scrollAndMotionGuards": true
+}
