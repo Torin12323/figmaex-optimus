@@ -1,13 +1,13 @@
 [
   {
     "name": "擎天柱 · 星辰剑",
-    "version": "1.6.0",
+    "version": "1.6.3",
     "css": "optimus.css",
     "preview": "preview.html"
   },
   {
     "name": "擎天柱 · 星辰剑（静态）",
-    "version": "1.6.0",
+    "version": "1.6.3",
     "css": "optimus-static.css"
   }
 ]

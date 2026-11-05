@@ -1,4 +1,4 @@
-/* FigmaEX · 擎天柱 / STAR SWORD v1.6.0
+/* FigmaEX · 擎天柱 / STAR SWORD v1.6.3
  * 使用：替换 FigmaEX 设置中的全部皮肤 CSS。
  * 原创样式；角色原图由用户提供；公开选择器依据 Moonvy/Figma-CSS-Skins。
  * 流光沿剑刃和展开面板边缘运行，文字和图标使用实色承载面。
@@ -584,7 +584,7 @@ body .FigmaExApp .ExBar::after { background: var(--rails) center / 100% 100% no-
 body .FigmaExApp .ExBar .area-actions::before {
   z-index: 6;
   mask: var(--rails) center / 100% 100% no-repeat;
-  background: linear-gradient(170deg,transparent 37%,#4fd4ff99 48%,#c9f8ffbd 51%,transparent 59%) 0 0 / 100% 130px repeat-y;
+  background: linear-gradient(170deg,transparent 43%,#4fd4ff2e 49%,#92e6ff42 51%,transparent 56%) 0 0 / 100% 130px repeat-y;
   animation: var(--blade-flow);
 }
 @keyframes optimus-blade-pass { to { background-position-y: 130px; } }
@@ -743,3 +743,142 @@ body .FigmaExApp .ExBar .GroupPad .group-list .new-group.group .oIcon {
 }
 body .FigmaExApp .ExBar.expanded .area-groups.GroupPad,
 body .FigmaExApp .ExBar.expanded .GroupPad .group-list { padding-right: 0; }
+
+/* Match each slot to the eight equal segments on the reference blade. */
+body .FigmaExApp .ExBar { --slot-height: calc(var(--sw) * 666 / 301 / 8); }
+body .FigmaExApp .ExBar .ActionItem,
+body .FigmaExApp.compact-ui .ExBar .ActionItem {
+  box-sizing: border-box;
+  height: var(--slot-height);
+  min-height: var(--slot-height);
+}
+body .FigmaExApp .ExBar .ActionItem .main-icon {
+  width: calc(var(--sw) * 62 / 301);
+  height: calc(var(--sw) * 62 / 301);
+}
+body .FigmaExApp .ExBar .area-actions::before { opacity: 0; }
+body .FigmaExApp .ExBar:is(:hover,:focus-within,.focus,.expanded) .area-actions::before { opacity: 1; }
+body .FigmaExApp .ExBar .GroupPad .group-list .new-group.group {
+  border-radius: 6px 0 0 6px;
+}
+body .FigmaExApp .ExBar .ActionItem.IconBorder .main-icon { border: 0; box-shadow: none; }
+body .FigmaExApp .ExBar .ActionItem .action-info :is(.name,.note-name) {
+  display: block;
+  line-height: 15px;
+  max-height: 15px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+body .FigmaExApp .ExBar .ActionItem .action-info .name { font-size: 12px; }
+body .FigmaExApp .ExBar .ActionItem .action-info .note-name { line-height: 12px; font-size: 10px; }
+body .FigmaExApp.compact-ui .ExBar .ActionItem .note-name { display: none; }
+body:not([data-preferred-theme=dark]) .FigmaExApp .ExBar .GroupPad .group-list .group {
+  color: #1f3248 !important;
+  background: #f7f5f1 !important;
+  border: 1.5px solid #344a61;
+  border-radius: 6px 0 0 6px;
+}
+body:not([data-preferred-theme=dark]) .FigmaExApp .ExBar .GroupPad .group-list .group.active {
+  background: #eee1c3 !important;
+}
+body:not([data-preferred-theme=dark]) .FigmaExApp .ExBar .GroupPad .group-list .group .len {
+  background: transparent;
+  color: #41536b !important;
+}
+body:not([data-preferred-theme=dark]) .FigmaExApp .ExBar .GroupPad .group-list .new-group .oIcon { color: #236b80; }
+
+/* Keep the blade on its native right anchor. The extra width belongs to the plugin list. */
+body .FigmaExApp .ExBar {
+  --slot-height: 42px;
+  --icon-size: 30px;
+  --spine: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20301%204%22%20preserveAspectRatio%3D%22none%22%3E%3Cdefs%3E%3ClinearGradient%20id%3D%22steel%22%3E%3Cstop%20stop-color%3D%22%23818996%22%2F%3E%3Cstop%20offset%3D%22.07%22%20stop-color%3D%22%23aeb7c0%22%2F%3E%3Cstop%20offset%3D%22.42%22%20stop-color%3D%22%23d9dde0%22%2F%3E%3Cstop%20offset%3D%22.49%22%20stop-color%3D%22%23e6e6e4%22%2F%3E%3Cstop%20offset%3D%22.5%22%20stop-color%3D%22%23faf7ed%22%2F%3E%3Cstop%20offset%3D%22.515%22%20stop-color%3D%22%23a6a8aa%22%2F%3E%3Cstop%20offset%3D%22.86%22%20stop-color%3D%22%239499a1%22%2F%3E%3Cstop%20offset%3D%22.96%22%20stop-color%3D%22%23757f8d%22%2F%3E%3Cstop%20offset%3D%221%22%20stop-color%3D%22%23596676%22%2F%3E%3C%2FlinearGradient%3E%3C%2Fdefs%3E%3Cpath%20fill%3D%22url%28%23steel%29%22%20d%3D%22M98%200H203V4H98Z%22%2F%3E%3C%2Fsvg%3E");
+  --spine-join: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20301%20133%22%20preserveAspectRatio%3D%22none%22%3E%3Cdefs%3E%3ClinearGradient%20id%3D%22steel%22%3E%3Cstop%20stop-color%3D%22%23818996%22%2F%3E%3Cstop%20offset%3D%22.07%22%20stop-color%3D%22%23aeb7c0%22%2F%3E%3Cstop%20offset%3D%22.42%22%20stop-color%3D%22%23d9dde0%22%2F%3E%3Cstop%20offset%3D%22.49%22%20stop-color%3D%22%23e6e6e4%22%2F%3E%3Cstop%20offset%3D%22.5%22%20stop-color%3D%22%23faf7ed%22%2F%3E%3Cstop%20offset%3D%22.515%22%20stop-color%3D%22%23a6a8aa%22%2F%3E%3Cstop%20offset%3D%22.86%22%20stop-color%3D%22%239499a1%22%2F%3E%3Cstop%20offset%3D%22.96%22%20stop-color%3D%22%23757f8d%22%2F%3E%3Cstop%20offset%3D%221%22%20stop-color%3D%22%23596676%22%2F%3E%3C%2FlinearGradient%3E%3C%2Fdefs%3E%0A%3Cdefs%3E%0A%20%20%3ClinearGradient%20id%3D%22fade%22%20x2%3D%220%22%20y2%3D%221%22%20gradientUnits%3D%22objectBoundingBox%22%3E%3Cstop%20offset%3D%22.78%22%20stop-color%3D%22white%22%2F%3E%3Cstop%20offset%3D%221%22%20stop-color%3D%22black%22%2F%3E%3C%2FlinearGradient%3E%0A%20%20%3Cmask%20id%3D%22m%22%20maskUnits%3D%22userSpaceOnUse%22%20x%3D%220%22%20y%3D%220%22%20width%3D%22301%22%20height%3D%22133%22%3E%3Cpath%20fill%3D%22url%28%23fade%29%22%20d%3D%22M0%200H301V133H0Z%22%2F%3E%3C%2Fmask%3E%0A%3C%2Fdefs%3E%0A%3Cg%20mask%3D%22url%28%23m%29%22%3E%0A%20%20%3Cpath%20fill%3D%22url%28%23steel%29%22%20d%3D%22M98%200H203L196%2089%20174%20122%20150.5%20133%20127%20122%20105%2089Z%22%2F%3E%0A%20%20%3Cpath%20fill%3D%22%23818795%22%20d%3D%22M98%200%20122%2082%20150.5%20133%20105%2089Z%22%2F%3E%0A%20%20%3Cpath%20fill%3D%22%23b6b9ba%22%20d%3D%22M203%200%20178%2082%20150.5%20133%20196%2089Z%22%2F%3E%0A%20%20%3Cpath%20fill%3D%22none%22%20stroke%3D%22%23e5e6e5%22%20stroke-width%3D%221%22%20d%3D%22M98%200%20122%2082%20150.5%20133%22%2F%3E%0A%20%20%3Cpath%20fill%3D%22none%22%20stroke%3D%22%23757d86%22%20stroke-width%3D%221%22%20d%3D%22M203%200%20178%2082%20150.5%20133%22%2F%3E%0A%3C%2Fg%3E%3C%2Fsvg%3E");
+  --taper: calc(var(--sw) * 90 / 301);
+  --overlap: calc(var(--sw) * 43 / 301);
+  --panel-metal: linear-gradient(155deg,#f1f3f4,#e2e7eb 75%,#d8e0e5);
+  --panel-seams: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 260 75' preserveAspectRatio='none'%3E%3Cg fill='none' stroke='%23738da1' stroke-opacity='.3'%3E%3Cpath d='M0 24h25l18 17h80l15 15h122M0 31h22l17 17h53M194 75V54l25-25h41'/%3E%3C/g%3E%3C/svg%3E");
+
+}
+body[data-preferred-theme=dark] .FigmaExApp .ExBar {
+  --panel-metal: linear-gradient(155deg,#293847,#263340 75%,#1c2935);
+}
+body .FigmaExApp.compact-ui .ExBar { --icon-size: 26px; }
+body .FigmaExApp .ExBar.expanded {
+  width: min(460px, calc(100vw - 16px));
+}
+body .FigmaExApp .ExBar.expanded .area-actions {
+  width: calc(100% - 160px);
+}
+body .FigmaExApp .ExBar:not(.mini) .area-actions,
+body .FigmaExApp .ExBar.mini:is(.expanded,.focus) .area-actions {
+  background: var(--spine-join) right 0 bottom calc(var(--tip) - var(--overlap)) / var(--sw) calc(var(--taper) + var(--overlap)) no-repeat,
+    var(--point) right bottom / var(--sw) var(--tip) no-repeat,
+    var(--spine) right 0 top var(--head) / var(--sw) max(0px,calc(100% - var(--head) - var(--tip) - var(--taper) + 1px)) no-repeat !important;
+}
+body .FigmaExApp .ExBar::before {
+  background: var(--helmet) center top / 100% var(--head) no-repeat;
+}
+body .FigmaExApp .ExBar .action-list { background: transparent; }
+body .FigmaExApp .ExBar.expanded .action-list {
+  background: linear-gradient(#6c9eb7,#91b6c8) right calc(var(--axis) + var(--sw) * 50 / 301) top / 1px 100% no-repeat,
+    var(--panel-seams) left bottom / calc(100% - var(--axis) - var(--sw) * 50 / 301) 75px no-repeat,
+    var(--panel-metal) left top / calc(100% - var(--axis) - var(--sw) * 50 / 301) 100% no-repeat;
+}
+body .FigmaExApp .ExBar .ActionItem .main-icon,
+body .FigmaExApp.compact-ui .ExBar .ActionItem .main-icon {
+  width: var(--icon-size);
+  height: var(--icon-size);
+  background-size: contain;
+  outline: 1px solid rgb(75 91 106 / 32%);
+  outline-offset: 0;
+}
+body .FigmaExApp .ExBar .ActionItem::after {
+  box-shadow: inset 0 0 0 1px #85929c;
+}
+body .FigmaExApp .ExBar .ActionItem:is(:hover,:focus-within,.selected,.active,[aria-selected="true"])::after {
+  background: linear-gradient(90deg,#b93545 0 4px,transparent 4px),linear-gradient(145deg,#fbfaf8,#dfdedb 72%,#a9adb0);
+}
+body .FigmaExApp .ExBar .ActionItem .action-info {
+  padding: 0 2px 0 5px;
+  transform: none;
+}
+body .FigmaExApp .ExBar .ActionItem .action-info .name {
+  font-size: 14px;
+  line-height: 19px;
+  max-height: 19px;
+}
+body .FigmaExApp .ExBar.expanded .ActionItem .action-info .note-name {
+  display: block;
+  box-sizing: border-box;
+  font-size: 12px;
+  line-height: 16px;
+  max-height: 16px;
+  transform: none;
+}
+body .FigmaExApp .ExBar.expanded .ActionItem:is(:hover,:focus-within) .note-name { padding-right: 60px; }
+body .FigmaExApp .ExBar.expanded .ActionItem:has(.star-but.isStar):not(:hover):not(:focus-within) .note-name { padding-right: 20px; }
+body .FigmaExApp .ExBar.expanded .ActionItem .note-name:has(.note-name-edit) { padding-right: 0; }
+body .FigmaExApp .ExBar.expanded .ActionItem .note-name-edit {
+  width: 100%;
+  height: 16px;
+  font: inherit;
+}
+body .FigmaExApp .ExBar.expanded .ActionItem:has(.note-name-edit) .buttons { visibility: hidden; }
+body .FigmaExApp .ExBar.expanded .ActionItem .buttons {
+  position: absolute;
+  right: calc(var(--axis) + var(--tile)/2 + 8px);
+  bottom: 1px;
+  height: 18px;
+  align-items: center;
+}
+body .FigmaExApp .ExBar.expanded .ActionItem .buttons > div {
+  position: relative;
+  right: auto;
+  width: 20px;
+  height: 18px;
+}
+
+body .FigmaExApp .ExBar .ActionItem:hover .main-icon { scale: 1; }
+body .FigmaExApp .ExBar .ActionItem:hover .buttons :is(.note-but,.info-but,.star-but) { opacity: .82; }
+body .FigmaExApp .ExBar .ActionItem:hover .buttons :is(.note-but,.info-but,.star-but):hover { opacity: 1; }

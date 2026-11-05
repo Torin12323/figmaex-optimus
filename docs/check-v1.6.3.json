@@ -1,0 +1,54 @@
+{
+  "readability": {
+    "beforeHover": {
+      "width": 198,
+      "full": 198,
+      "font": "14px",
+      "noteFont": "12px",
+      "row": 42,
+      "icon": 30,
+      "buttonY": 509.984375,
+      "nameBottom": 509.484375
+    },
+    "onHover": {
+      "width": 198,
+      "full": 198,
+      "font": "14px",
+      "noteFont": "12px",
+      "row": 42,
+      "icon": 30,
+      "buttonY": 509.984375,
+      "nameBottom": 509.484375
+    }
+  },
+  "scope": "Local Chromium with FigmaEX v1.5.101 host styles and representative DOM. Extension event handlers are simulated.",
+  "chromium": "153.0.8010.0",
+  "collapsed": {
+    "width": 120,
+    "head": 123.984375,
+    "tip": 72.15625,
+    "iconAxis": 60
+  },
+  "expanded": {
+    "width": 460,
+    "head": 123.984375,
+    "tip": 72.15625,
+    "iconAxis": 60
+  },
+  "compact": {
+    "width": 98,
+    "head": 101.25,
+    "iconAxis": 49
+  },
+  "checks": [
+    "same sword on both sides of expansion",
+    "distinct idle and active art",
+    "moving edge paint",
+    "settings target",
+    "new group target after list",
+    "last plugin icon hit target with 2 and 30 rows",
+    "resize target",
+    "mini",
+    "static and reduced motion"
+  ]
+}
