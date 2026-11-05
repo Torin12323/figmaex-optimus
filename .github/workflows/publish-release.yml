@@ -1,4 +1,4 @@
-name: Publish Optimus v1.5.0
+name: Publish Optimus v1.6.0
 on:
   push:
     branches: [main]
@@ -7,7 +7,7 @@ on:
 permissions:
   contents: write
 concurrency:
-  group: release-optimus-v1.5.0
+  group: release-optimus-v1.6.0
   cancel-in-progress: false
 jobs:
   release:
@@ -22,21 +22,22 @@ jobs:
         shell: bash
         run: |
           set -euo pipefail
-          curl --fail --location --retry 3 --output figmaex-optimus-v1.5.0.zip "https://raw.githubusercontent.com/Torin12323/figmaex-optimus/$RELEASE_COMMIT/figmaex-optimus-v1.5.0.zip"
-          echo "8f7c5fcdfbe6cf072432cfde341888db07336d310a29cc1affbd9796cf619eae  figmaex-optimus-v1.5.0.zip" | sha256sum --check
+          curl --fail --location --retry 3 --output figmaex-optimus-v1.6.0.zip "https://raw.githubusercontent.com/Torin12323/figmaex-optimus/$RELEASE_COMMIT/figmaex-optimus-v1.6.0.zip"
+          echo "e846e7341cc407c6fc22871ed49ea421f9b30a0481729ebdee7da01f8f0debfb  figmaex-optimus-v1.6.0.zip" | sha256sum --check
           cat > release-notes.md <<'NOTES'
-          ## 星辰剑一体式工具栏
-          - 头肩与金色护手相接，插件图标沿红蓝剑身排列，底部以银色剑尖收尾。
-          - 悬停或聚焦时眼睛亮起。动态版沿剑刃两侧播放 1.6 秒青色流光，静态版保留头像状态。
-          - 54px 普通与 41px 紧凑宽度分别校正图标位置，展开后保留可读的目录和插件卡片。
-          - 附离线 preview.html、更新日志和设置入口恢复方法。
+          ## 按参考图重做了三处
+          - 收起时，宽肩盔、金色护手、两侧红蓝装甲与长剑尖连为一体。
+          - 展开时，整把剑仍在右边，真实插件图标继续沿剑身中线排列。悬停或聚焦时眼睛亮起。
+          - 左侧目录末尾的「＋」使用完整一行，新增分组时向下移动。
           
-          下载下方 Assets 的 figmaex-optimus-v1.5.0.zip，解压后用 optimus.css（动态）或 optimus-static.css（静态）全文替换现有自定义 CSS。
+          ![收起与展开对照](https://raw.githubusercontent.com/Torin12323/figmaex-optimus/v1.6.0/docs/sword-comparison.png)
           
-          本地测试基于 FigmaEX v1.5.101 的结构。实际插件保存、执行和拖动仍需试装确认。
+          下载 Assets 的 figmaex-optimus-v1.6.0.zip。解压后先打开 preview.html，确认效果，再把 optimus.css（动态）或 optimus-static.css（静态）全文替换到 FigmaEX 的自定义 CSS 中。
+          
+          本地按 FigmaEX v1.5.101 的样式和组件结构测试；实际扩展中的保存、运行插件和拖动仍需试装确认。
           NOTES
-          if gh release view v1.5.0 --repo "$GH_REPO" >/dev/null 2>&1; then
+          if gh release view v1.6.0 --repo "$GH_REPO" >/dev/null 2>&1; then
             echo "Release already exists; keeping it unchanged."
             exit 0
           fi
-          gh release create v1.5.0 figmaex-optimus-v1.5.0.zip --repo "$GH_REPO" --target "$RELEASE_COMMIT" --title "擎天柱皮肤 v1.5.0 · 星辰剑" --notes-file release-notes.md --latest
+          gh release create v1.6.0 figmaex-optimus-v1.6.0.zip --repo "$GH_REPO" --target "$RELEASE_COMMIT" --title "擎天柱皮肤 v1.6.0 · 星辰剑" --notes-file release-notes.md --latest
