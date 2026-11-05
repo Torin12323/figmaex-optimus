@@ -1,4 +1,4 @@
-name: Publish Optimus v1.6.3
+name: Publish Optimus v1.6.5
 on:
   push:
     branches: [main]
@@ -7,36 +7,87 @@ on:
 permissions:
   contents: write
 concurrency:
-  group: release-optimus-v1.6.3
+  group: release-optimus-v1.6.5
   cancel-in-progress: false
 jobs:
   release:
     runs-on: ubuntu-latest
-    timeout-minutes: 5
+    timeout-minutes: 8
     steps:
-      - name: Verify package and publish release
-        env:
-          GH_TOKEN: ${{ github.token }}
-          GH_REPO: Torin12323/figmaex-optimus
-          RELEASE_COMMIT: ${{ github.sha }}
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - name: Verify the skin in Chromium
         shell: bash
         run: |
           set -euo pipefail
-          curl --fail --location --retry 3 --output figmaex-optimus-v1.6.3.zip "https://raw.githubusercontent.com/Torin12323/figmaex-optimus/$RELEASE_COMMIT/figmaex-optimus-v1.6.3.zip"
-          echo "915f027804d37bdc2c53d72e521bf1c6d7ac68a1b587dffe926893a6442a36cf  figmaex-optimus-v1.6.3.zip" | sha256sum --check
-          cat > release-notes.md <<'NOTES'
-          ## 星辰剑工具栏 v1.6.3
-          - 插件较少时，金属剑脊延伸至剑尖。
-          - 插件列表向左加宽，名称和图标放大；悬停操作位于第二行。
-          - 离线预览可切换到三个插件的布局。
-
-          下载 Assets 的 figmaex-optimus-v1.6.3.zip。解压后先打开 preview.html，确认效果，再把 optimus.css（动态）或 optimus-static.css（静态）全文替换到 FigmaEX 的自定义 CSS 中。
-          
-          本地按 FigmaEX v1.5.101 的样式和组件结构测试；实际扩展中的保存、运行插件和拖动仍需试装确认。
-          NOTES
-          if gh release view v1.6.3 --repo "$GH_REPO" >/dev/null 2>&1; then
-            echo "Release already exists; keeping it unchanged."
-            exit 0
+          python3 - <<'PY'
+          from pathlib import Path
+          template = Path('preview.html').read_text()
+          test = """
+          <script>
+          addEventListener('load', () => {
+            const q = s => document.querySelector(s);
+            q('#open').click();
+            const gear = q('.setting-but'), input = q('.find-input');
+            const g = gear.getBoundingClientRect(), f = input.getBoundingClientRect();
+            const css = () => getComputedStyle(q('.area-actions'), '::before');
+            const ok = (c, msg) => { if (!c) throw Error(msg); };
+            try {
+              ok(Math.abs(g.top + g.height/2 - f.top - f.height/2) < .2 && g.width === 28 && f.width === 112, 'toolbar geometry');
+              ok(Math.abs(g.left - f.right - 10) < .2, 'toolbar gap');
+              ok(document.elementFromPoint(g.left+14,g.top+14) === gear, 'settings hit target');
+              const anim = document.getAnimations().find(a => a.animationName === 'optimus-edge-arcs');
+              if (location.search.includes('static') || matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                ok(!anim && (css().content === 'none' || css().opacity === '0'), 'static or reduced motion');
+              } else {
+                ok(anim && css().pointerEvents === 'none', 'arc animation');
+                const delay = anim.effect.getTiming().delay;
+                anim.pause();
+                function sample(ms) {
+                  anim.currentTime = 65000 + delay + ms;
+                  return {opacity: Number(css().opacity), image: css().backgroundImage};
+                }
+                const first = sample(3700);
+                ok(first.opacity > .95 && first.image.includes('svg'), 'first flash');
+                ok(sample(3960).opacity < .01, 'fade');
+                const next = sample(9500);
+                ok(next.opacity > .95 && next.image !== first.image, 'alternate arc');
+              }
+              document.body.setAttribute('data-test-result', 'passed');
+            } catch(e) { document.body.setAttribute('data-test-error', e.message); }
+          });
+          </script>
+          """
+          for name, sheet in [('dynamic', 'optimus.css'), ('static', 'optimus-static.css')]:
+              html = template.replace('href="optimus.css"', 'href="' + sheet + '"', 1)
+              Path('check-' + name + '.html').write_text(html + test)
+          PY
+          for mode in dynamic static reduced; do
+            page=dynamic
+            flags=()
+            if [[ "$mode" == static ]]; then page=static; fi
+            if [[ "$mode" == reduced ]]; then flags+=(--force-prefers-reduced-motion); fi
+            google-chrome --headless --no-sandbox --disable-gpu --allow-file-access-from-files --window-size=1100,900 --virtual-time-budget=1500 "${flags[@]}" --dump-dom "file://$PWD/check-$page.html?$mode" > "$RUNNER_TEMP/result.html"
+            if ! grep -q '<body[^>]*data-test-result="passed"' "$RUNNER_TEMP/result.html"; then
+              grep -o '<body[^>]*>' "$RUNNER_TEMP/result.html" | head -1
+              exit 1
+            fi
+          done
+      - name: Package and publish
+        env:
+          GH_TOKEN: ${{ github.token }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          tag=v1.6.5
+          package="figmaex-optimus-$tag.zip"
+          git archive --format=zip --prefix=figmaex-optimus/ -o "$package" HEAD -- '*.css' index.json README.md CHANGELOG.md FIGMAEX-SKIN-STANDARD.md preview.html assets docs
+          unzip -tq "$package"
+          sha256sum "$package"
+          if gh release view "$tag" >/dev/null 2>&1; then
+            gh release download "$tag" -p "$package" -D "$RUNNER_TEMP"
+            cmp "$package" "$RUNNER_TEMP/$package"
+          else
+            gh release create "$tag" "$package" --target "$GITHUB_SHA" --title "擎天柱皮肤 v1.6.5 · 刃线闪电" --notes "动态版加入间歇性的冰蓝闪电和短分叉，延续 v1.6.4 的搜索框与齿轮布局。静态版和系统减少动态模式关闭闪电。下载 ZIP，解压后打开 preview.html，可先查看动态和静态效果。"
           fi
-          gh release create v1.6.3 figmaex-optimus-v1.6.3.zip --repo "$GH_REPO" --target "$RELEASE_COMMIT" --title "擎天柱皮肤 v1.6.3 · 星辰剑" --notes-file release-notes.md --latest
-
