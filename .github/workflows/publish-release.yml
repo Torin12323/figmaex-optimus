@@ -1,4 +1,4 @@
-name: Publish Optimus v1.4.3
+name: Publish Optimus v1.5.0
 on:
   push:
     branches: [main]
@@ -7,7 +7,7 @@ on:
 permissions:
   contents: write
 concurrency:
-  group: release-optimus-v1.4.3
+  group: release-optimus-v1.5.0
   cancel-in-progress: false
 jobs:
   release:
@@ -22,21 +22,21 @@ jobs:
         shell: bash
         run: |
           set -euo pipefail
-          curl --fail --location --retry 3 --output figmaex-optimus-v1.4.3.zip "https://raw.githubusercontent.com/Torin12323/figmaex-optimus/$RELEASE_COMMIT/figmaex-optimus-v1.4.3.zip"
-          echo "0080e887c41c7228eaec7fc26e8d9b8d8add9ca4c7681c8cc9a38f5c3680c8c6  figmaex-optimus-v1.4.3.zip" | sha256sum --check
+          curl --fail --location --retry 3 --output figmaex-optimus-v1.5.0.zip "https://raw.githubusercontent.com/Torin12323/figmaex-optimus/$RELEASE_COMMIT/figmaex-optimus-v1.5.0.zip"
+          echo "8f7c5fcdfbe6cf072432cfde341888db07336d310a29cc1affbd9796cf619eae  figmaex-optimus-v1.5.0.zip" | sha256sum --check
           cat > release-notes.md <<'NOTES'
-          ## 背景自动铺满
-          - 装甲背景随面板和两侧区域尺寸铺满，取消固定像素高度。
-          - 处理 SVG 内部比例留白和空白容器遮挡，文字控件继续使用实色底。
-          - 布局、定位、滚动和流光速度保持不变。
-          - 包含开发验收规范及无需粘贴代码的临时恢复步骤。
+          ## 星辰剑一体式工具栏
+          - 头肩与金色护手相接，插件图标沿红蓝剑身排列，底部以银色剑尖收尾。
+          - 悬停或聚焦时眼睛亮起。动态版沿剑刃两侧播放 1.6 秒青色流光，静态版保留头像状态。
+          - 54px 普通与 41px 紧凑宽度分别校正图标位置，展开后保留可读的目录和插件卡片。
+          - 附离线 preview.html、更新日志和设置入口恢复方法。
           
-          下载下方 Assets 中的 figmaex-optimus-v1.4.3.zip，复制 optimus.css 全文替换旧 CSS。静态版使用 optimus-static.css。
+          下载下方 Assets 的 figmaex-optimus-v1.5.0.zip，解压后用 optimus.css（动态）或 optimus-static.css（静态）全文替换现有自定义 CSS。
           
-          验证：本地 Chromium 的发布包结构模拟，检查不同高度、深浅主题及改动前后几何；未直接操作用户实际安装。外壳自动高度仍暂缓。
+          本地测试基于 FigmaEX v1.5.101 的结构。实际插件保存、执行和拖动仍需试装确认。
           NOTES
-          if gh release view v1.4.3 --repo "$GH_REPO" >/dev/null 2>&1; then
+          if gh release view v1.5.0 --repo "$GH_REPO" >/dev/null 2>&1; then
             echo "Release already exists; keeping it unchanged."
             exit 0
           fi
-          gh release create v1.4.3 figmaex-optimus-v1.4.3.zip --repo "$GH_REPO" --target "$RELEASE_COMMIT" --title "擎天柱皮肤 v1.4.3 · 背景自动铺满" --notes-file release-notes.md --latest
+          gh release create v1.5.0 figmaex-optimus-v1.5.0.zip --repo "$GH_REPO" --target "$RELEASE_COMMIT" --title "擎天柱皮肤 v1.5.0 · 星辰剑" --notes-file release-notes.md --latest

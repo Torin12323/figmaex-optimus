@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 54 300" preserveAspectRatio="none">
+  <defs>
+    <linearGradient id="steel"><stop stop-color="#101b30"/><stop offset=".36" stop-color="#abbccd"/><stop offset=".52" stop-color="#e8edf2"/><stop offset=".66" stop-color="#647489"/><stop offset="1" stop-color="#253649"/></linearGradient>
+    <g id="edge">
+      <path fill="url(#steel)" d="M0 0h8l-2 30v235l2 35H0z"/>
+      <path fill="#173f8f" d="M1 0h4v300H1z"/>
+      <path fill="#6598df" d="M1 2l4 10v9l-4-9zm0 110 4 11v5l-4-10zm0 122 4 11v4l-4-10z"/>
+      <path fill="#b9313c" d="M1 34l4 13v15L1 48zm0 38 4 13v6l-4-9zm0 85 4 16v12l-4-13zm0 98 4 14v10l-4-12z"/>
+      <path fill="#edf4ff" d="M6 0h1v300H6z" opacity=".78"/>
+    </g>
+  </defs>
+  <use href="#edge"/><use href="#edge" transform="translate(54) scale(-1 1)"/>
+</svg>

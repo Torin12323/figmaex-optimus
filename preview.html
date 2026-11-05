@@ -1,60 +1,161 @@
-<!doctype html>
-<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>擎天柱 · 塞伯坦装甲舱</title>
-<style>
-*{box-sizing:border-box}body{margin:0;background:#080f19;color:#edf4ff;font:14px/1.6 system-ui,"Microsoft YaHei",sans-serif}button,input,textarea{font:inherit}button,a{touch-action:manipulation}button{cursor:pointer}a{color:#94dfff}button:focus-visible,a:focus-visible,input:focus-visible{outline:2px solid #8bdfff;outline-offset:3px}.page{max-width:1240px;margin:auto;padding:38px 32px}.mast{display:flex;justify-content:space-between;gap:20px;border-bottom:1px solid #34465c;padding-bottom:18px}.brand{font:700 12px monospace;letter-spacing:2px}.tag{color:#aec1d6;font-size:12px}.intro{display:grid;grid-template-columns:1fr 1fr;gap:50px;align-items:end;margin:42px 0 30px}h1{font-size:clamp(32px,4.5vw,58px);line-height:1.15;letter-spacing:-2px;margin:0 0 14px}.eyebrow{color:#9cdff4;font:12px monospace;letter-spacing:2px}.intro p{color:#b7c9dc;max-width:490px;margin:0}.chips{display:flex;gap:8px;flex-wrap:wrap;margin-top:20px}.chips span{font-size:11px;border:1px solid #455c74;border-radius:4px;padding:3px 8px}.controls{display:flex;gap:8px;flex-wrap:wrap;margin:22px 0}.controls button,.controls a,.width-control{padding:8px 11px;background:#172436;border:1px solid #5f7891;border-radius:5px;color:#edf4ff;text-decoration:none;font-size:12px}.controls button[aria-pressed=true]{border-color:#8bdfff;background:#25435d}.width-control{display:flex;gap:8px;align-items:center}.width-control input{width:105px;accent-color:#8bdfff}.stage{display:grid;grid-template-columns:minmax(250px,1fr) minmax(240px,480px);gap:32px;align-items:start}.poster{position:relative;min-height:540px;overflow:hidden;border:1px solid #34465c;border-radius:12px;background:linear-gradient(120deg,transparent 55%,#0f243a 55.2%,#0f243a 73%,transparent 73.2%),#101b2a;padding:30px}.poster:before{content:"";position:absolute;top:0;left:0;bottom:0;width:5px;background:#b32e42}.poster .serial{font:11px monospace;letter-spacing:2px;color:#9eb6cf}.poster img{display:block;width:180px;height:210px;max-width:100%;margin:34px auto 30px}.poster h2{font-size:32px;line-height:1.12;margin:0}.poster p{font-size:13px;color:#b7c9dc;max-width:320px}.swatches{display:flex;gap:7px;margin-top:25px}.swatches i{width:34px;height:5px}.demo{min-width:0}.hint{color:#b7c9dc;font-size:12px;margin:0 0 12px}.FigmaExApp{--demo-width:360px;max-width:100%}.FigmaExApp .ExBar{width:var(--demo-width);max-width:100%;margin:0 auto}.FigmaExApp .header{display:flex;align-items:center;gap:7px;padding:10px}.logo-but{display:block;width:32px;height:38px;flex-shrink:0;border:0}.find-input{display:flex;flex:1}.find-input input{width:100%;height:31px;padding:0 8px;border:0;border-radius:6px;font-size:12px}.setting-but,.clear-but{width:25px;height:28px;flex-shrink:0;border:1px solid var(--op-line)}.content{display:block}.area-groups{padding:10px 10px 0}.group-list{display:flex;gap:4px;flex-wrap:wrap}.group{border:0;background:none;padding:6px 7px;font-size:12px;display:flex;gap:7px;align-items:center;text-align:left}.len{font:10px monospace}.area-actions{padding:12px 10px}.section-label{font-size:10px;letter-spacing:1.5px;margin:0 0 8px;color:var(--op-muted)}.action-list{max-height:none;overflow:auto;padding:2px}.mSortlist{display:flex;flex-direction:column;gap:7px}.ActionItem{display:flex;gap:9px;padding:10px 8px;align-items:center}.main-icon{width:30px;height:30px;display:grid;place-items:center;background:var(--op-selected);color:var(--op-text);font-size:15px;font-weight:700}.action-info{flex:1}.name{font-size:13px}.note-name{margin-top:3px}.buttons{flex-shrink:0}.star-but{width:25px;height:28px;border:0;background:none;color:var(--op-text);font-size:17px}.empty-found{text-align:center;padding:35px 10px}.markt-result{margin-top:12px;font-size:12px}.goto-markt{display:block;padding:8px;text-decoration:none;border-radius:5px}.reseize-hand{height:27px;display:flex;align-items:center;justify-content:center;cursor:ns-resize}.dot{width:30px;height:4px}.compact-ui .ActionItem{padding:5px 7px;gap:7px}.compact-ui .main-icon{width:26px;height:26px}.compact-ui .note-name{margin-top:1px}.compact-ui .header{padding:7px}.ExBar.expanded .content{display:flex}.ExBar.expanded .area-groups{width:108px;flex-shrink:0;padding:12px 5px}.ExBar.expanded .group-list{flex-direction:column}.ExBar.expanded .area-actions{flex:1;padding:12px 6px}.ExBar.mini:not(.expanded):not(.focus) .content{display:none}.Settings{padding:16px;margin-top:16px}.Settings textarea{width:100%;min-height:70px;padding:10px;font:12px monospace}.Settings .notes{font-size:12px}.footer{border-top:1px solid #34465c;margin-top:36px;padding-top:18px;color:#b7c9dc;font-size:12px}.FigmaExApp[data-motion=off]{--op-motion:none}.demo.longtext .name{font-size:16px}.demo.longtext .note-name{font-size:14px}[hidden]{display:none!important}body[data-preferred-theme=light]{background:#e8eef5;color:#172b40}body[data-preferred-theme=light] .intro p,body[data-preferred-theme=light] .hint,body[data-preferred-theme=light] .tag,body[data-preferred-theme=light] .footer{color:#42566c}body[data-preferred-theme=light] .eyebrow{color:#116293}body[data-preferred-theme=light] .poster{color:#edf4ff}.controls button:disabled{opacity:.6}@media(max-width:850px){.stage{grid-template-columns:1fr}.poster{min-height:0;display:grid;grid-template-columns:100px 1fr;gap:18px}.poster img{width:95px;height:111px;margin:0;grid-row:1/4}.poster .serial{display:none}.poster h2{font-size:24px}.poster p{margin:0}.swatches{margin:0}.intro{grid-template-columns:1fr;gap:16px;margin-top:26px}.page{padding:24px 16px}}@media(max-width:360px){.poster{padding:18px;grid-template-columns:75px 1fr}.poster img{width:70px}.poster h2{font-size:20px}}
-
-.poster img{width:240px;height:372px;object-fit:contain;background:#fff;border-radius:5px;margin:24px auto}.poster{min-height:690px}@media(max-width:850px){.poster{min-height:0}.poster img{width:95px;height:auto;margin:0}}@media(max-width:360px){.poster img{width:70px}}
-
-/* 本地模拟布局，以下规则不在安装用 CSS 中。 */
-.FigmaExApp .ExBar{overflow:hidden;position:relative;padding-bottom:27px}.FigmaExApp .ExBar .header .logo-but{order:4;flex-shrink:0}.header .find-input{order:1}.header .clear-but{order:2}.header .setting-but{order:3}
-.FigmaExApp .ExBar.expanded .header{margin-left:124px;min-height:61px;padding:10px 7px;gap:5px}.ExBar.expanded .area-groups{width:124px;margin-top:-61px;padding:14px 8px}.ExBar.expanded .group-list{gap:5px}.ExBar.expanded .group{min-height:30px;justify-content:space-between}.ExBar.expanded .area-actions{padding:10px 7px;min-height:0}.ExBar.expanded .reseize-hand{margin-left:124px}.ActionItem{gap:6px;padding:9px 7px}.ActionItem .main-icon{order:3}.ActionItem .action-info{order:1}.ActionItem .buttons{order:2}.mSortlist{gap:3px}.section-label{display:inline-block;background:var(--op-shell);padding:3px 6px;border-radius:4px}.ExBar.mini:not(.expanded) .content{display:none}.FigmaExApp[data-motion=off]{--op-speed:0ms}.FigmaExApp[data-motion=off] .ActionItem,.FigmaExApp[data-motion=off] .main-icon,.FigmaExApp[data-motion=off] .star-but,.FigmaExApp[data-motion=off] .setting-but,.FigmaExApp[data-motion=off] .clear-but{scale:1!important}.compact-ui .ExBar.expanded .area-actions{min-height:0}
-
-</style><link rel="stylesheet" href="optimus.css"></head>
-<body data-preferred-theme="dark"><main class="page">
-<header class="mast"><span class="brand">CYBERTRON / ARMOR</span><span class="tag">FIGMAEX SKIN · 1.4.3</span></header>
-<section class="intro"><div><p class="eyebrow">OPTIMUS PRIME</p><h1>内容增长，装甲随行</h1><div class="chips"><span>红蓝装甲</span><span>银色面甲</span><span>青色能量轨</span></div></div><p>修复版恢复原生列表高度和底部拖动条定位。收起时只显示图标，移到顶部头像区域后展开；4px 光轨周期为 1.6 秒。</p></section>
-<nav class="controls" aria-label="预览控制">
-<button id="theme" aria-pressed="true">深色模式</button><button id="compact" aria-pressed="false">紧凑模式</button><button id="expanded" aria-pressed="true">分类侧栏</button><button id="mini" aria-pressed="false">最小化</button><button id="glass" aria-pressed="false">透明模式兼容</button><button id="motion" aria-pressed="true">流光开启</button><button id="long" aria-pressed="false">长名称／大字</button><button id="diagnose">检查流光</button><button id="add-group">增加目录</button><button id="add-plugin">增加插件</button><button id="reset-counts">恢复数量</button><button id="empty" aria-pressed="false">空搜索</button>
-<label class="width-control">面板宽度 <input id="width" type="range" min="240" max="460" value="400" step="20"><output id="width-value">400 px</output></label>
-<a href="optimus.css" download>动态版 CSS ↓</a><a href="optimus-static.css" download>静态版 CSS ↓</a></nav>
-<p id="motion-status" class="hint" role="status">点击“检查流光”可检测当前浏览器的关键帧、运行状态和背景位置变化。</p><div class="stage"><section class="poster" aria-label="主题视觉"><span class="serial">AUTOBOT COMMAND / UNIT 001</span><img src="assets/optimus-reference.png" alt="用户提供的擎天柱全身原图，保留原图署名"><h2>STRONG FORM.<br>QUIET FOCUS.</h2><p>红色肩甲、蓝色头盔与银灰金属。让能量成为边缘的细节，让内容始终清楚。</p><div class="swatches"><i style="background:#b32e42"></i><i style="background:#205d9b"></i><i style="background:#bfd4e5"></i><i style="background:#8bdfff"></i></div></section>
-<section class="demo"><p class="hint">交互模拟面板 · 可搜索、收藏、切换状态<br>这不是实际 FigmaEX 截图；底部拖动条仅展示外观。</p>
-<div class="FigmaExApp" style="--demo-width:400px"><div class="ExBar expanded"><div class="header"><button class="logo-but color" title="主题标志" aria-label="擎天柱主题标志"></button><div class="find-input"><input id="search" aria-label="搜索插件" placeholder="搜索插件…"></div><button class="clear-but" aria-label="清空搜索"></button><button class="setting-but" aria-label="打开设置" aria-expanded="false"></button></div>
-<div class="content"><aside class="area-groups"><div class="GroupPad"><div class="group-list"><button class="group active" data-filter="all" aria-pressed="true">全部 <span class="len">6</span></button><button class="group" data-filter="starred" aria-pressed="false">收藏 <span class="len" id="star-count">2</span></button><button class="group" data-filter="设计工具" aria-pressed="false">设计工具</button><button class="group" data-filter="效率助手" aria-pressed="false">效率助手</button></div></div></aside>
-<div class="area-actions"><div class="action-list"><div class="section-label">COMMAND TOOLS</div><div class="mSortlist" id="items" role="listbox" aria-label="示例插件选择"></div><div class="empty-found" hidden>没有找到匹配的插件<br>试试其他关键词</div><div class="markt-result"><a class="goto-markt" href="https://www.figma.com/community/plugins" target="_blank" rel="noopener noreferrer">探索更多插件 ↗</a></div></div></div></div><div class="reseize-hand" title="模拟拖动区域"><div class="dot"></div></div></div>
-<div class="settings-wrap" hidden><div class="Settings"><strong class="name">皮肤 CSS · Optimus</strong><p class="notes">在正式 FigmaEX 中粘贴完整 optimus.css。这里仅为设置样式预览，输入不会应用。</p><textarea aria-label="模拟设置输入框" spellcheck="false">/* 请在正式 FigmaEX 中粘贴 */</textarea></div></div></div></section></div>
-<p class="footer">此页按用户截图调整为左侧分类、右侧列表、图标在右的模拟布局；实际插件仍需安装核对。本页离线可用，无字体服务、CDN 或外部图片。预览控制只用于模拟，安装版保留宿主外壳布局，预览按钮仅用于增减模拟数据。系统开启“减少动态效果”后，光流会自动停止。</p>
-</main><script>
-const app=document.querySelector('.FigmaExApp'),bar=app.querySelector('.ExBar'),search=document.querySelector('#search');
-const entries=[['↗','自动布局','设计工具',true],['Aa','字体选择','设计工具',false],['◫','批量重命名','效率助手',true],['◇','图标管理','设计工具',false],['⌘','属性助手','效率助手',false],['▧','切片工具','效率助手',false]];
-let filter='all',forceEmpty=false,long=false,selectedIndex=-1;
-const pressed=(id,on)=>document.querySelector('#'+id).setAttribute('aria-pressed',String(on));
-function render(){document.querySelector('[data-filter=all] .len').textContent=entries.length;const parent=document.querySelector('#items');parent.replaceChildren();entries.forEach((e,i)=>{const title=long?e[1]+' · 跨团队组件规范与多语言文档同步工具':e[1];if(forceEmpty||!title.includes(search.value.trim())||(filter==='starred'&&!e[3])||(!['all','starred'].includes(filter)&&e[2]!==filter))return;const row=document.createElement('div');row.className='ActionItem IconBorder';row.classList.toggle('selected',i===selectedIndex);row.setAttribute('tabindex','0');row.setAttribute('role','option');row.setAttribute('aria-selected',String(i===selectedIndex));row.onclick=(event)=>{if(event.target.closest('button'))return;selectedIndex=i;render()};row.onkeydown=(event)=>{if(event.target.closest('button'))return;if(event.key==='Enter'||event.key===' '){event.preventDefault();selectedIndex=i;render()}};row.innerHTML='<div class="main-icon"></div><div class="action-info"><div class="name"></div><div class="note-name"></div></div><div class="buttons"><button class="star-but"></button></div>';row.querySelector('.main-icon').textContent=e[0];row.querySelector('.name').textContent=title;row.querySelector('.note-name').textContent=long?'这是较长的辅助说明，悬停后仍然保持清晰。':e[2]+' · 示例插件';const star=row.querySelector('.star-but');star.classList.toggle('isStar',e[3]);star.textContent=e[3]?'★':'☆';star.setAttribute('aria-pressed',String(e[3]));star.setAttribute('aria-label',(e[3]?'取消收藏':'收藏')+e[1]);star.onclick=()=>{entries[i][3]=!e[3];render()};parent.append(row)});document.querySelector('.empty-found').hidden=!!parent.childElementCount;document.querySelector('#star-count').textContent=entries.filter(e=>e[3]).length}
-document.querySelector('#theme').onclick=()=>{const dark=document.body.dataset.preferredTheme!=='dark';document.body.dataset.preferredTheme=dark?'dark':'light';pressed('theme',dark)};
-document.querySelector('#compact').onclick=()=>pressed('compact',app.classList.toggle('compact-ui'));
-document.querySelector('#expanded').onclick=()=>{pressed('expanded',bar.classList.toggle('expanded'));bar.classList.remove('mini');pressed('mini',false)};
-document.querySelector('#mini').onclick=()=>{pressed('mini',bar.classList.toggle('mini'));bar.classList.remove('expanded');pressed('expanded',false)};
-document.querySelector('#glass').onclick=()=>pressed('glass',bar.classList.toggle('glass'));
-document.querySelector('#motion').onclick=()=>{const on=app.dataset.motion==='off';app.dataset.motion=on?'on':'off';pressed('motion',on);document.querySelector('#motion').textContent=on?'流光开启':'流光关闭'};
-document.querySelector('#long').onclick=()=>{long=!long;document.querySelector('.demo').classList.toggle('longtext',long);pressed('long',long);render()};
-document.querySelector('#empty').onclick=()=>{forceEmpty=!forceEmpty;pressed('empty',forceEmpty);render()};
-document.querySelector('#width').oninput=e=>{const value=Number(e.target.value);app.style.setProperty('--demo-width',value+'px');document.querySelector('#width-value').textContent=value+' px'};
-document.querySelector('.clear-but').onclick=()=>{search.value='';forceEmpty=false;pressed('empty',false);render();search.focus()};search.oninput=()=>{forceEmpty=false;pressed('empty',false);render()};
-function bindGroup(button){button.onclick=()=>{filter=button.dataset.filter;selectedIndex=-1;document.querySelectorAll('.group').forEach(b=>{b.classList.toggle('active',b===button);b.setAttribute('aria-pressed',String(b===button))});render()}};
-document.querySelectorAll('.group').forEach(bindGroup);
-let extraGroup=0;
-document.querySelector('#add-group').onclick=()=>{const button=document.createElement('button');button.className='group';button.dataset.filter='新增目录 '+(++extraGroup);button.dataset.extra='true';button.textContent=button.dataset.filter;button.setAttribute('aria-pressed','false');document.querySelector('.group-list').append(button);bindGroup(button)};
-document.querySelector('#add-plugin').onclick=()=>{entries.push(['✦','新增插件 '+(entries.length-5),['all','starred'].includes(filter)?'设计工具':filter,filter==='starred']);forceEmpty=false;pressed('empty',false);search.value='';render()};
-document.querySelector('#reset-counts').onclick=()=>{entries.splice(6);document.querySelectorAll('.group[data-extra]').forEach(e=>e.remove());extraGroup=0;search.value='';forceEmpty=false;pressed('empty',false);document.querySelector('[data-filter=all]').click();render()};
-
-document.querySelector('.setting-but').onclick=()=>{const s=document.querySelector('.settings-wrap');s.hidden=!s.hidden;document.querySelector('.setting-but').setAttribute('aria-expanded',String(!s.hidden))};render();
-
-document.querySelector('#diagnose').onclick=async()=>{
- const label=document.querySelector('#motion-status'),target=app.querySelector('.header');
- const state=()=>{const c=getComputedStyle(target,'::after');return {name:c.animationName,play:c.animationPlayState,duration:c.animationDuration,position:c.backgroundPosition,content:c.content}};
- const reduced=matchMedia('(prefers-reduced-motion: reduce)').matches,a=state();
- label.textContent='正在采样流光位置…';await new Promise(resolve=>setTimeout(resolve,700));const b=state();
- if(reduced||a.name==='none'){label.textContent='流光已关闭：'+(reduced?'系统启用了减少动态效果。':'当前预览已关闭动画，或正在使用静态版。');return;}
- label.textContent=a.play==='running'&&a.position!==b.position?'流光运行正常：周期 '+a.duration+'，700ms 内背景位置发生变化。':'未检测到位置变化：请确保页面在前台、动画已开启，再试一次。';
-};
-</script></body></html>
+<!doctype html><html lang="zh-CN"><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>擎天柱 · 星辰剑试装</title><style>
+*{box-sizing:border-box}body{margin:0;font:14px/1.5 system-ui,"Microsoft YaHei",sans-serif;color:#172e4b;background:#eff3f7}
+main{max-width:900px;margin:auto;padding:22px 16px}h1{font-size:26px;margin:0 0 5px}p{margin:0 0 12px}button{font:inherit;cursor:pointer;color:inherit;border:1px solid #a5b6c8;border-radius:6px;padding:4px 10px;background:white}.controls{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:14px}
+.stage{position:relative;isolation:isolate;height:min(640px,73vh);min-height:210px;background-color:#f9fbfc;background-image:radial-gradient(#c0c9d4 .8px,transparent .8px);background-size:15px 15px;border:1px solid #b5c4d4;overflow:auto;border-radius:10px}
+.FigmaExApp .ExBar{position:absolute!important;right:8px!important;top:8px!important;max-height:calc(100% - 16px)}
+.main-icon{width:32px;height:32px;text-align:center;line-height:30px;font-weight:750;font-size:19px}.ActionItem{display:flex;align-items:center}.action-info{flex:1}.GroupPad{display:flex;flex-direction:column}.setting-but{min-width:16px;min-height:16px}
+.FigmaExApp.compact-ui .ExBar{width:41px}
+.FigmaExApp.compact-ui .ExBar .reseize-hand .dot{margin-right:12px}
+.FigmaExApp.compact-ui .ExBar .header{height:41px;padding-left:16px}
+.FigmaExApp.compact-ui .ExBar .header .logo-but{position:absolute;right:6px;top:7px;width:28px;height:28px;background-size:28px 28px}
+.FigmaExApp.compact-ui .ExBar .action-list{height:calc(100% - 44px)}
+.FigmaExApp.compact-ui .ExBar.mini:not(:hover){height:41px;min-height:41px}
+.FigmaExApp.compact-ui .ExBar .find-input input{font-size:12px}
+.FigmaExApp.compact-ui .ExBar.expanded{width:400px}
+.FigmaExApp.compact-ui .ExBar .ActionItem{padding:2px 8px;height:38px}
+.FigmaExApp.compact-ui .ExBar .ActionItem .action-info{transform:scale(0.925);transform-origin:left center}
+.FigmaExApp.compact-ui .ExBar .ActionItem .main-icon{background-size:24px 24px;border-radius:6px;height:24px;width:24px}
+.FigmaExApp.compact-ui .ExBar .ActionItem.IconRound .main-icon{border-radius:64px}
+.FigmaExApp .ExBar,body[data-preferred-theme=dark] .FigmaExApp .ExBar .area-actions{background:rgba(44,44,44,.9960784314)}
+.FigmaExApp .GroupPad,body[data-preferred-theme=dark] .FigmaExApp .Settings>.tabs{background:rgba(29,29,32,.65)}
+.FigmaExApp .GroupPad .group-list .group.active{background:#3c3c44;color:#f2f2f2}
+.FigmaExApp .GroupPad .group-list .group.active .len{color:rgba(215,215,225,.53)}
+.FigmaExApp .GroupPad .group-list .group{color:rgba(197,197,197,.8901960784)}
+.FigmaExApp .GroupPad .group-list .group:hover{background:#3c3c44}
+.FigmaExApp .GroupPad .group-list .group .len{color:rgba(221,221,229,.37)}
+.FigmaExApp .GroupPad .group-list .group[data-id=recent]:before{background:#404052}
+.FigmaExApp .GroupPad .group-list .new-group.group .oIcon{font-size:15px;filter:invert(1)}
+.FigmaExApp .ExBar .reseize-hand{background:rgba(44,44,44,0)}
+.FigmaExApp .ExBar .header{background:rgba(44,44,44,0)}
+.FigmaExApp .ActionItem{background:rgba(0,0,0,0)}
+.FigmaExApp .ExBar.glass{background:rgba(255,255,255,0)}
+.FigmaExApp .ExBar.glass::before{background:rgba(59,58,58,.7490196078)}
+.FigmaExApp .ExBar .reseize-hand .dot{background:rgba(244,244,244,.18)}
+.FigmaExApp .ActionItem .action-info .note-name{color:rgba(255,255,255,.3843137255)}
+.FigmaExApp .ActionItem .action-info{color:rgba(255,255,255,.831372549)}
+.FigmaExApp .ExBar .header .logo-but{opacity:0}
+.FigmaExApp .ExBar .header .logo-but.color{opacity:.9}
+.FigmaExApp .ExBar .ActionItem:hover{background:rgba(23,23,23,.4196078431)}
+.FigmaExApp .ActionItem .buttons>div,body[data-preferred-theme=dark] .SearchList .ActionItem .info-but{filter:invert(1) grayscale(1)}
+.FigmaExApp .ExBar .action-list::-webkit-scrollbar-thumb{border:0px solid #fff}
+.FigmaExApp .ExBar .action-list::-webkit-scrollbar-thumb{background-color:rgba(165,165,165,.39)}
+.FigmaExApp .ExBar .action-list::-webkit-scrollbar-thumb:hover{background-color:rgba(165,165,165,.69)}
+.FigmaExApp .ExBar .find-input .clear-but img{filter:inset(1)}
+.FigmaExApp .ExBar .find-input input{font-size:12px;color:rgba(255,255,255,.8196078431)}
+.FigmaExApp .ActionItem.IconBorder .main-icon{border:1px solid #606060}
+.FigmaExApp .ExBar .header .setting-but img,body[data-preferred-theme=dark] .FigmaExApp .ExBar .header .clear-but img{filter:invert(1)}
+.FigmaExApp .ExBar .markt-result .goto-markt .sub-name{opacity:.8}
+.FigmaExApp .ExBar .markt-result{color:#9f98ff}
+.FigmaExApp .ExBar .top-list{border-bottom:1px solid rgba(255,255,255,.1215686275)}
+.FigmaExApp .ExBar{position:fixed;z-index:0;display:flex;place-items:flex-start;align-items:stretch;right:253px;top:71px;width:54px;height:auto;min-height:104px;flex-direction:row-reverse;background:rgba(0,0,0,0);border-radius:8px;transition:none;overflow:hidden}
+.FigmaExApp .ExBar .area-actions{display:flex;place-items:flex-start;flex-direction:column;overflow:hidden;padding-bottom:10px;background:#fff;width:240px;flex:none;order:1}
+.FigmaExApp .ExBar .area-groups{display:flex;place-items:flex-start;flex-direction:column;overflow:hidden;position:relative;z-index:20;flex:none;width:160px;order:2}
+.FigmaExApp .ExBar *{user-select:none}
+.FigmaExApp .ExBar.resizeing{transition:none}
+.FigmaExApp .ExBar.mini:not(.expanded):not(.focus){height:54px;min-height:42px;padding-bottom:0}
+.FigmaExApp .ExBar.mini:not(.expanded):not(.focus) .reseize-hand{display:none}
+.FigmaExApp .ExBar.expanded{width:400px;transition:none}
+.FigmaExApp .ExBar.expanded .header .logo-but:not(.color){opacity:0}
+.FigmaExApp .ExBar:not(.expanded) .markt-result{display:none}
+.FigmaExApp .ExBar .action-list{overflow:hidden;overflow-y:auto;overscroll-behavior:none;width:240px;flex:none;direction:rtl;height:calc(100% - 54px)}
+.FigmaExApp .ExBar .action-list>*{direction:ltr}
+.FigmaExApp .ExBar .action-list::-webkit-scrollbar{width:8px !important}
+.FigmaExApp .ExBar .action-list::-webkit-scrollbar-thumb{border-radius:13px;border:2px solid #fff;transition:all .5s}
+.FigmaExApp .ExBar .action-list::-webkit-scrollbar-thumb:hover{background-color:rgba(0,0,0,.2);transition:all .5s}
+.FigmaExApp .ExBar .action-list::-webkit-scrollbar-thumb{background-color:rgba(112,109,158,.21)}
+.FigmaExApp .ExBar .action-list .empty-found{width:100%;font-size:13px;text-align:center;margin-top:0;color:rgba(115,115,126,.4705882353);line-height:20px;height:54px;display:flex;place-items:center;place-content:center}
+.FigmaExApp .ExBar .action-list .empty-found .goto-markt{color:#5a52fb;cursor:pointer}
+.FigmaExApp .ExBar .mSortlist[data-type=actions_top]{border-bottom:1px solid rgba(0,0,0,.0901960784)}
+.FigmaExApp .ExBar .over-shadow{height:10px;width:54px;background:linear-gradient(#ffffff 0, rgba(255, 255, 255, 0.6588235294) 50%, rgba(255, 255, 255, 0) 100%);position:absolute;top:50px;z-index:2}
+.FigmaExApp .ExBar .header{background:#f8f8fd;height:54px;border-radius:0;width:240px;display:flex;place-items:center;padding:0 20px;box-sizing:border-box;flex:none}
+.FigmaExApp .ExBar .header .find-input{display:flex;align-items:center}
+.FigmaExApp .ExBar .header .find-input input{width:114px;min-width:50px;height:30px;border-radius:6px;background:rgba(0,0,0,0);font-size:13px}
+.FigmaExApp .ExBar .header .find-input input ::-webkit-input-placeholder{color:rgba(117,117,117,.73)}
+.FigmaExApp .ExBar .header .title{font-size:14px;font-weight:500}
+.FigmaExApp .ExBar .header .setting-but,.FigmaExApp .ExBar .header .clear-but{font-size:12px;margin-left:auto;margin-right:34px;color:#a9a9d5;cursor:pointer;display:flex;place-items:center}
+.FigmaExApp .ExBar .header .setting-but img,.FigmaExApp .ExBar .header .clear-but img{opacity:.5;width:16px;height:16px}
+.FigmaExApp .ExBar .header .setting-but:hover,.FigmaExApp .ExBar .header .clear-but:hover{color:#8080d4}
+.FigmaExApp .ExBar .header .setting-but:hover img,.FigmaExApp .ExBar .header .clear-but:hover img{opacity:.7}
+.FigmaExApp .ExBar .header .clear-but{margin-right:15px}
+.FigmaExApp .ExBar .reseize-hand{height:10px;display:flex;place-items:center;place-content:flex-end;cursor:ns-resize;position:absolute;bottom:0;right:0;width:100%;z-index:10;background:#fff}
+.FigmaExApp .ExBar .reseize-hand .dot{height:3px;background:rgba(234,234,241,.9411764706);width:18px;border-radius:10px;margin-right:17px}
+.FigmaExApp .ExBar .reseize-hand:hover .dot{background:#e4e4ef}
+.FigmaExApp .ExBar .markt-result{padding:20px;font-size:13px;display:flex;place-content:center;color:#6e63fc;border-top:1px solid rgba(137,132,239,.1019607843);cursor:pointer;min-height:20px;flex-direction:column;padding:0}
+.FigmaExApp .ExBar .markt-result .goto-markt{padding-left:17px;padding-top:21px;padding-bottom:8px}
+.FigmaExApp .ExBar .markt-result .goto-markt .sub-name{opacity:.5}
+.FigmaExApp .ExBar.glass{background:rgba(255,255,255,.2509803922)}
+.FigmaExApp .ExBar.glass .header{background:rgba(250,250,255,.4901960784)}
+.FigmaExApp .ExBar.glass .area-actions{background:rgba(255,255,255,.2509803922)}
+.FigmaExApp .ExBar.glass .reseize-hand{background:rgba(255,255,255,0)}
+.FigmaExApp .ExBar.glass .reseize-hand .dot{background:rgba(216,216,227,.94)}
+.FigmaExApp .ExBar.glass .reseize-hand:hover .dot{background:rgba(194,194,212,.94)}
+.FigmaExApp .ExBar.glass .action-list::-webkit-scrollbar{width:4px !important}
+.FigmaExApp .ExBar.glass .action-list::-webkit-scrollbar-thumb{border:0px solid #fff}
+.FigmaExApp .ExBar.glass .ActionItem{background:rgba(255,255,255,.0039215686)}
+.FigmaExApp .ExBar.glass .ActionItem:hover{background:rgba(9,9,53,.0784313725)}
+.FigmaExApp .ExBar .smooth-dnd-ghost .ActionItem{backdrop-filter:blur(20px);background:rgba(255,255,255,.38);border-bottom:1px solid rgba(0,0,0,.0901960784);border-top:1px solid rgba(0,0,0,.0705882353)}
+.FigmaExApp .ExBar{right:262px;top:13px;border-radius:13px;box-shadow:var(--elevation-100)}
+.FigmaExApp .ActionItem{display:flex;place-items:center;place-content:space-between;height:44px;padding:2px 10px;cursor:default;user-select:none;background:#fff;transition:background .2s ease-in-out}
+.FigmaExApp .ActionItem *{user-select:none}
+.FigmaExApp .ActionItem:hover{background:rgba(235,235,248,.6705882353)}
+.FigmaExApp .ActionItem:active{transition:all .1s ease;background:rgba(202,202,227,.67)}
+.FigmaExApp .ActionItem .main-icon{width:32px;height:32px;background-size:32px 32px;border-radius:8px;height:32px;width:32px;flex:none;transition:all}
+.FigmaExApp .ActionItem.spin.IconRunningAnime .main-icon{animation:rotate .25s linear infinite}
+.FigmaExApp .ActionItem.spin:not(.IconRunningAnime){cursor:wait}
+.FigmaExApp .ActionItem .buttons{display:flex}
+.FigmaExApp .ActionItem .buttons div{display:none}
+.FigmaExApp .ActionItem .note-name-edit{border-bottom:1px solid #3f4ad9;font-size:12px;cursor:text}
+.FigmaExApp .ActionItem .buttons .star-but.isStar{display:flex !important;opacity:.8 !important}
+.FigmaExApp .ActionItem:hover .buttons div{display:flex}
+.FigmaExApp .ActionItem:hover .note-but,.FigmaExApp .ActionItem:hover .star-but,.FigmaExApp .ActionItem:hover .info-but{pointer-events:auto;opacity:.4}
+.FigmaExApp .ActionItem:hover .note-but:hover,.FigmaExApp .ActionItem:hover .star-but:hover,.FigmaExApp .ActionItem:hover .info-but:hover{opacity:.6}
+.FigmaExApp .ActionItem:hover .note-but:active,.FigmaExApp .ActionItem:hover .star-but:active,.FigmaExApp .ActionItem:hover .info-but:active{opacity:.8}
+.FigmaExApp .ActionItem.IconRound .main-icon{border-radius:64px}
+.FigmaExApp .ActionItem.IconBorder .main-icon{border:1px solid #c9c7d9}
+.FigmaExApp .ActionItem .action-info{display:flex;place-items:flex-start;place-content:center;flex-direction:column;flex:1;padding-left:6px;font-style:normal;font-weight:500;font-size:12px;line-height:14px;color:#1d232f;overflow:hidden;text-overflow:ellipsis;padding-right:10px}
+.FigmaExApp .ActionItem .action-info div{width:100%;white-space:nowrap;min-width:0;text-overflow:ellipsis;overflow:hidden}
+.FigmaExApp .ActionItem .action-info .name{font-weight:500;height:20px;display:flex;align-items:center}
+.FigmaExApp .ActionItem .action-info .note-name{color:#7e91bc;font-weight:400;transform:scale(0.94);transform-origin:left center}
+.FigmaExApp .readonlyGroup .ActionItem .buttons .note-but,.FigmaExApp .readonlyGroup .ActionItem .buttons .star-but:not(.isStar){pointer-events:none !important;display:none !important}
+.FigmaExApp .animated.smooth-dnd-draggable-wrapper .ActionItem:hover{background:rgba(0,0,0,0) !important}
+.FigmaExApp .GroupPad{width:140px;min-width:140px;padding:10px;background:rgba(238,238,246,.9098039216);padding-right:5px;box-sizing:border-box}
+.FigmaExApp .GroupPad .avatar{height:18px;width:18px;border-radius:50%;flex:none}
+.FigmaExApp .GroupPad .icon{margin-right:7px}
+.FigmaExApp .GroupPad .settings-buttons{margin-top:auto;width:100%}
+.FigmaExApp .GroupPad .moonvy-login-info{height:32px;width:100%;background-color:rgba(218,216,235,.5098039216);border-radius:5px;font-size:12px;margin-bottom:-2px}
+.FigmaExApp .GroupPad .moonvy-login-info:hover{background:#dfdfec}
+.FigmaExApp .GroupPad .moonvy-login-info .sync-icon{margin-left:auto;font-size:20px;flex:none}
+.FigmaExApp .GroupPad .moonvy-login-info .name{flex:auto;overflow:hidden;text-overflow:ellipsis;text-align:left}
+.FigmaExApp .GroupPad .moonvy-login-info button{width:100%;height:100%}
+.FigmaExApp .GroupPad button{display:flex;white-space:nowrap;padding:6px;box-sizing:border-box;border-radius:4px;font-size:12px;place-items:center;place-content:flex-start;background-color:rgba(0,0,0,0);cursor:pointer;color:#6d5e80;width:100%}
+.FigmaExApp .GroupPad button:hover{color:#673d9d}
+.FigmaExApp .GroupPad button .club-logo{margin-right:2px}
+.FigmaExApp .GroupPad .group-list{width:100%;margin-bottom:8px;overflow:hidden;overflow-y:auto;overscroll-behavior:none;max-height:calc(100% - 36px);flex:none;direction:ltr;margin-bottom:8px;padding-right:4px;box-sizing:border-box}
+.FigmaExApp .GroupPad .group-list::-webkit-scrollbar{width:4px !important}
+.FigmaExApp .GroupPad .group-list::-webkit-scrollbar-thumb{border-radius:13px;transition:all .5s}
+.FigmaExApp .GroupPad .group-list::-webkit-scrollbar-thumb:hover{background-color:rgba(0,0,0,.2);transition:all .5s}
+.FigmaExApp .GroupPad .group-list::-webkit-scrollbar-thumb{background-color:rgba(112,109,158,.21)}
+.FigmaExApp .GroupPad .group-list .smooth-dnd-container>div:not(:last-child){margin-bottom:1px}
+.FigmaExApp .GroupPad .group-list .smooth-dnd-ghost{backdrop-filter:blur(20px);background:rgba(255,255,255,.38) !important;border-bottom:1px solid rgba(0,0,0,.0901960784);border-top:1px solid rgba(0,0,0,.0705882353)}
+.FigmaExApp .GroupPad .group-list .group{position:relative;font-size:13px;color:#413a4a;height:30px;display:flex;place-content:flex-start;place-items:center;cursor:pointer;border-radius:4px;padding:0 10px;margin-bottom:1px}
+.FigmaExApp .GroupPad .group-list .group .len{margin-left:auto;color:rgba(77,77,93,.368627451);font-size:12px}
+.FigmaExApp .GroupPad .group-list .group .installed-loading-icon{margin-left:auto;font-size:13px;color:rgba(77,77,93,.368627451);flex:none}
+.FigmaExApp .GroupPad .group-list .group .name{text-overflow:ellipsis;overflow:hidden;white-space:nowrap}
+.FigmaExApp .GroupPad .group-list .group:hover{background:#dedee8;color:#413a4a}
+.FigmaExApp .GroupPad .group-list .group.active{background:#d5d5e3;color:#1f1f38}
+.FigmaExApp .GroupPad .group-list .group.active .len{color:rgba(72,72,118,.53)}
+.FigmaExApp .GroupPad .group-list .group input.name-input{width:auto;flex:auto;min-width:10px;background:rgba(0,0,0,0);border-bottom:1px solid #3f4ad9;font-size:12px;cursor:text;display:none}
+.FigmaExApp .GroupPad .group-list .group.isEdit .name-input{display:block}
+.FigmaExApp .GroupPad .group-list .group.isEdit .name{display:none}
+.FigmaExApp .GroupPad .group-list .group[data-id=recent]{position:relative;overflow:visible;margin-bottom:4px}
+.FigmaExApp .GroupPad .group-list .new-group.group{place-content:center;color:#7c7a7a;text-shadow:0 1px rgba(255,255,255,.5882352941)}
+.FigmaExApp .GroupPad .group-list .new-group.group .oIcon{font-size:15px}
+.FigmaExApp .GroupPad .group-list .group-list-name{font-size:12px;padding:0 8px;font-weight:bold;color:rgba(124,122,122,.6509803922);margin-top:8px;margin-bottom:3px}
+</style><link id="skin" rel="stylesheet" href="optimus.css"><main><h1>擎天柱 · 星辰剑</h1><p>把鼠标移到头盔上展开。点击「收起」查看完整剑形，切换静态版可对比光效。</p><div class="controls"><button id="open">展开</button><button id="close">收起</button><button id="switch">切换到静态版</button></div><div class="stage"><div class="FigmaExApp"><div class="ExBar"><div class="GroupPad area-groups"><div class="group-list"><div class="group" tabindex="0"><span class="name">已保存</span><span class="len">12</span></div><div class="group" tabindex="0"><span class="name">最近使用</span><span class="len">5</span></div><div class="group" tabindex="0"><span class="name">实用插件</span><span class="len">3</span></div><div class="group" tabindex="0"><span class="name">控件效果</span><span class="len">2</span></div><div class="group" tabindex="0"><span class="name">文字</span><span class="len">2</span></div><div class="group" tabindex="0"><span class="name">调色</span><span class="len">4</span></div></div></div><div class="area-actions"><div class="header"><div class="find-input"><input placeholder="搜索 FigmaEX"></div><div class="setting-but" role="button" tabindex="0" aria-label="设置">⚙</div><div class="logo-but color" role="button" tabindex="0" aria-label="擎天柱"></div></div><div class="action-list"><div class="mSortlist"><div class="ActionItem IconBorder" tabindex="0"><div class="action-info"><div class="name">渐进模糊</div><div class="note-name">设计工具</div></div><div class="buttons"></div><div class="main-icon" style="color:#274e87">✦</div></div><div class="ActionItem IconBorder" tabindex="0"><div class="action-info"><div class="name">描边工具</div><div class="note-name">设计工具</div></div><div class="buttons"></div><div class="main-icon" style="color:#9c344d">◉</div></div><div class="ActionItem IconBorder" tabindex="0"><div class="action-info"><div class="name">图标库</div><div class="note-name">设计工具</div></div><div class="buttons"></div><div class="main-icon" style="color:#406b5a">▥</div></div><div class="ActionItem IconBorder" tabindex="0"><div class="action-info"><div class="name">配色检查</div><div class="note-name">设计工具</div></div><div class="buttons"></div><div class="main-icon" style="color:#274e87">◈</div></div><div class="ActionItem IconBorder" tabindex="0"><div class="action-info"><div class="name">图层整理</div><div class="note-name">设计工具</div></div><div class="buttons"></div><div class="main-icon" style="color:#9c344d">▦</div></div><div class="ActionItem IconBorder" tabindex="0"><div class="action-info"><div class="name">自动布局</div><div class="note-name">设计工具</div></div><div class="buttons"></div><div class="main-icon" style="color:#406b5a">⌖</div></div><div class="ActionItem IconBorder" tabindex="0"><div class="action-info"><div class="name">形状生成器</div><div class="note-name">设计工具</div></div><div class="buttons"></div><div class="main-icon" style="color:#274e87">◇</div></div><div class="ActionItem IconBorder" tabindex="0"><div class="action-info"><div class="name">样式检查</div><div class="note-name">设计工具</div></div><div class="buttons"></div><div class="main-icon" style="color:#9c344d">◐</div></div><div class="ActionItem IconBorder" tabindex="0"><div class="action-info"><div class="name">导出助手</div><div class="note-name">设计工具</div></div><div class="buttons"></div><div class="main-icon" style="color:#406b5a">⇩</div></div><div class="ActionItem IconBorder" tabindex="0"><div class="action-info"><div class="name">间距标注</div><div class="note-name">设计工具</div></div><div class="buttons"></div><div class="main-icon" style="color:#274e87">↔</div></div><div class="ActionItem IconBorder" tabindex="0"><div class="action-info"><div class="name">图片处理</div><div class="note-name">设计工具</div></div><div class="buttons"></div><div class="main-icon" style="color:#9c344d">▧</div></div><div class="ActionItem IconBorder" tabindex="0"><div class="action-info"><div class="name">组件列表</div><div class="note-name">设计工具</div></div><div class="buttons"></div><div class="main-icon" style="color:#406b5a">⬡</div></div></div></div><div class="reseize-hand"><div class="dot"></div></div></div></div></div></div><p id="status" aria-live="polite"></p></main><script>
+const q=s=>document.querySelector(s),bar=q('.ExBar'),show=()=>bar.classList.add('expanded');
+q('#open').onclick=show;q('#close').onclick=()=>bar.classList.remove('expanded');q('.header').onmouseenter=show;q('.logo-but').onfocus=show;
+q('#switch').onclick=e=>{const next=q('#skin').getAttribute('href')==='optimus.css'?'optimus-static.css':'optimus.css';q('#skin').href=next;e.target.textContent=next==='optimus.css'?'切换到静态版':'切换到动态版'};
+q('.setting-but').onclick=()=>q('#status').textContent='设置按钮可点击。实际安装请进入 FigmaEX 设置 → 皮肤。';
+for(const item of document.querySelectorAll('.group,.ActionItem'))item.onclick=()=>{for(const e of item.parentElement.children)e.classList.remove('active');item.classList.add('active')};
+document.addEventListener('keydown',e=>{if(e.key==='Escape')bar.classList.remove('expanded');if((e.key==='Enter'||e.key===' ')&&e.target.matches('[role=button],.group,.ActionItem')){e.preventDefault();e.target.click()}});
+</script></html>

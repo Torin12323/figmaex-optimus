@@ -1,0 +1,19 @@
+{
+  "version": "1.5.0",
+  "chromium": "153.0.8010.0",
+  "fixture": "FigmaEX 1.5.101 host CSS and representative DOM; preview events are simulated.",
+  "closedWidth": 54,
+  "expandedWidth": 400,
+  "compactWidth": 41,
+  "miniHeight": 54,
+  "checked": [
+    "icons centered at 54px and 41px",
+    "time-varying edge position",
+    "distinct idle and lit helmet",
+    "header hover opens",
+    "settings button receives click",
+    "scroll and activate last item",
+    "expanded resize handle hit target",
+    "reduced motion and static CSS stop edge animation"
+  ]
+}
